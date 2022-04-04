@@ -1,11 +1,15 @@
 # Technical Language Processing with TVTropes
 * [What is a dragon?](#what)
 * [When is a dragon not a dragon?](#not)
+  * [What are *real* dragons then?](#real)
  
 * [Technical language process](#tlp)
-    * [What are *real* dragons then?](#real)
+    * [Why we shouldn't use standard NLP tools for TVTropes](#nlp)
+    * [Caveats and concerns](#caveats)
+      1. Stopwords (#stopwords)
+      2. Sarcasm (#sarcasm)
 
-* 
+
 ## What is a dragon? <a name = 'what'>
 
 <img src="https://gameranx.com/wp-content/uploads/2020/01/DragonBallZKakarot12.jpg" width="40%"> <img src="https://media.gq-magazine.co.uk/photos/5d13955c4858d34333004e0f/16:9/w_2560%2Cc_limit/GOT-08-GQ-25May17_b.jpg" width="40%">
@@ -28,20 +32,28 @@ This is pretty standard. Above are images of 2 famous dragons in pop culture - S
 
 In order to understand the trope "the dragon," you would have to understand what a "Big Bad" is, what "Number Two" is (surprise, it's not *smallest and only even prime number*), what "The Lancer" is, what an "Evil Counterpart" is, and finally, what a "Foil" is. [^2] 
 
- 
- ## Technical Language Processing with TVTropes <a name = 'tlp'>
- 
-  * Why we can't use standard NLP tools for TVTropes
-
-Because trope world is different from Google News world (also known as [real life](https://tvtropes.org/pmwiki/pmwiki.php/Main/RealLife)), we shouldn't use Google's Word2Vec word embedding on TVTropes data.
- 
-==Insert Embedding Example from Tensorboard==
-
-  * 
+  
 #### Sidebar: What are *real* dragons, then? <a name='real'>
 "Real" dragons (yes I did write *real dragons*) have their own trope [Our Dragons Are Different](https://tvtropes.org/pmwiki/pmwiki.php/Main/OurDragonsAreDifferent), which is just a sarcastic way to name the differences in Eastern and Western depictions of dragons. We'll get back to sarcasm later. <a name = 'real'>
 
+ 
+ ## Technical Language Processing with TVTropes <a name = 'tlp'>
+ 
+  ### Why we shouldn't use standard NLP tools for TVTropes <a name = 'nlp'>
 
+Because "trope world" is different from Google News world (also known as [real life](https://tvtropes.org/pmwiki/pmwiki.php/Main/RealLife)), we shouldn't use Google's Word2Vec word embedding on TVTropes data. Common English words on TVTropes have alternate meanings and subtext, so it is best to train word embeddings on the TVTropes corpus directly. 
+ 
+For example, below is a screenshot of words closest to "dragon" in the Google Word2Vec 10k embedding. Click ==here== for the interactive version.
+ 
+==Insert Embedding Example for "dragon" from Tensorboard==
+
+Because of this I am interested in using TVTropes as a **technical language corpus to train custom word embeddings**.
+ 
+  ### Caveats & concerns <a name = 'caveats'>
+
+ 1. Stopwords: the word "the" on TVTropes shouldn't be dropped blindly as a stopword - ["The Dragon"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheDragon), ["The Heavy"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheHeavy), ["The Ditz"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheDitz), ["The Load"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheLoad) are all trope names. <a name='stopwords'>
+ 
+ 2. Sarcasm: There is a lot of sarcasm and subtext in the text of TVTropes pages. In their ("Naming A Trope" guide)[https://tvtropes.org/pmwiki/pmwiki.php/Administrivia/NamingATrope], TVTropes admins encourage "clever" trope names that incorporate "portmanteau words, alliteration, rhyming, puns and cultural references". <a name = 'sarcasm'>
 
 
 ## Footnotes:
