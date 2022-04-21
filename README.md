@@ -27,7 +27,7 @@ This is pretty standard. Above are images of 2 famous dragons in pop culture - S
 
 <img src="https://imgs.xkcd.com/comics/tab_explosion.png" width="25%">
 
-*What is TVTropes, you ask?* I think of it as a hybrid between a wiki for pop culture and a very frustrating dictionary that uses other words to you don't know to explain the word you're trying to look up (English is my second language so I've experienced this plenty of times)
+*What is TVTropes, you ask?* Personally, I think of it as a hybrid between a wikipedia of pop culture and a very frustrating dictionary which uses words you don't know to explain words you're trying to look up - English is my second language so I've experienced this plenty of times.
 
 #### In the world of tropes, ***THE*** dragon is not ***a*** dragon, but a pretty important type of character in works of fiction. 
 
