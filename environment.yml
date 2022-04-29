@@ -8,11 +8,20 @@ dependencies:
   - numpy=1.21.6
   - numba=0.53.1
   - seaborn=0.11.2
-  - scikit-learn
+  - scikit-learn=1.0.2
   - pandas=1.4.2
   - pip
+  - plotly=5.7.0
   - plotnine=0.8.0
+  - tqdm=4.64.0
   - pip:
     - bertopic==0.9.4
+    - nltk==3.7
+    - hdbscan==0.8.28
+    - gensim==4.1.2
+    - umap-learn==0.5.3
+    - networkx==2.8
+    - pandasql==0.7.3
+    - sqlalchemy==1.4.36
     
   
