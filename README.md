@@ -1,11 +1,16 @@
 # Technical Language Processing with TVTropes
 * [What is a dragon?](#what)
 * [When is a dragon not a dragon?](#not)
+  * [What are *real* dragons then?](#real)
  
-* [Technical language process](#tlp)
-    * [What are *real* dragons then?](#real)
+* [Technical language processing using TVTropes corpus](#tlp)
+    * [Why we shouldn't use standard NLP tools for TVTropes](#nlp)
+    * [Caveats and concerns](#caveats)
+       1. [Stopwords](#stopwords)
+       2. [Sarcasm](#sarcasm)
+* [Next steps](#next)
 
-* 
+
 ## What is a dragon? <a name = 'what'>
 
 <img src="https://gameranx.com/wp-content/uploads/2020/01/DragonBallZKakarot12.jpg" width="40%"> <img src="https://media.gq-magazine.co.uk/photos/5d13955c4858d34333004e0f/16:9/w_2560%2Cc_limit/GOT-08-GQ-25May17_b.jpg" width="40%">
@@ -22,31 +27,44 @@ This is pretty standard. Above are images of 2 famous dragons in pop culture - S
 
 <img src="https://imgs.xkcd.com/comics/tab_explosion.png" width="25%">
 
-*What is TVTropes, you ask?* I think of it as a hybrid between a wiki for pop culture and a very frustrating dictionary that uses other words to you don't know to explain the word you're trying to look up (English is my second language so I've experienced this plenty of times)
+*What is TVTropes, you ask?* Personally, I think of it as a hybrid between a wikipedia of pop culture and a very frustrating dictionary which uses words you don't know to explain words you're trying to look up - English is my second language so I've experienced this plenty of times.
 
 #### In the world of tropes, ***THE*** dragon is not ***a*** dragon, but a pretty important type of character in works of fiction. 
 
 In order to understand the trope "the dragon," you would have to understand what a "Big Bad" is, what "Number Two" is (surprise, it's not *smallest and only even prime number*), what "The Lancer" is, what an "Evil Counterpart" is, and finally, what a "Foil" is. [^2] 
 
- 
- ## Technical Language Processing with TVTropes <a name = 'tlp'>
- 
-  * Why we can't use standard NLP tools for TVTropes
-
-Because trope world is different from Google News world (also known as [real life](https://tvtropes.org/pmwiki/pmwiki.php/Main/RealLife)), we shouldn't use Google's Word2Vec word embedding on TVTropes data.
- 
-==Insert Embedding Example from Tensorboard==
-
-  * 
+  
 #### Sidebar: What are *real* dragons, then? <a name='real'>
 "Real" dragons (yes I did write *real dragons*) have their own trope [Our Dragons Are Different](https://tvtropes.org/pmwiki/pmwiki.php/Main/OurDragonsAreDifferent), which is just a sarcastic way to name the differences in Eastern and Western depictions of dragons. We'll get back to sarcasm later. <a name = 'real'>
 
+ 
+ ## Technical Language Processing using TVTropes corpus <a name = 'tlp'>
+ 
+  ### Why we shouldn't use standard NLP tools for TVTropes <a name = 'nlp'>
 
+Because "trope world" is different from Google News world (also known as [real life](https://tvtropes.org/pmwiki/pmwiki.php/Main/RealLife)), we shouldn't use Google's Word2Vec word embedding on TVTropes data. Common English words on TVTropes have alternate meanings and subtext, so it is best to train word embeddings on the TVTropes corpus directly. 
+ 
+For example, below is a screenshot of words closest to "dragon" in the Google Word2Vec 10k embedding. Click ==here== for the interactive version.
+ 
+==Insert Embedding Example for "dragon" from Tensorboard==
 
+Because of this I am interested in using TVTropes as a **technical language corpus to train custom word embeddings**.
+ 
+  ### Caveats & concerns <a name = 'caveats'>
+
+ 1.Stopwords: the word "the" on TVTropes shouldn't be dropped blindly as a stopword - ["The Dragon"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheDragon), ["The Heavy"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheHeavy), ["The Ditz"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheDitz), ["The Load"](https://tvtropes.org/pmwiki/pmwiki.php/Main/TheLoad) are all trope names. <a name='stopwords'>
+ 
+ 2.Sarcasm: There is a lot of sarcasm and subtext in the text of TVTropes pages. In their ["Naming A Trope" guide](https://tvtropes.org/pmwiki/pmwiki.php/Administrivia/NamingATrope), TVTropes admins encourage "clever" trope names that incorporate "portmanteau words, alliteration, rhyming, puns and cultural references". 
+ 
+My hope is that an embedding layer trained on a sarcastic written corpus (unliked corpus from transcribed dialogues from sitcoms) could be used to detect sarcasm (==I need to read up more about sarcasm & joke detection in NLP==) <a name = 'sarcasm'>
+
+## Next steps <a name='next'>
+ To be continued...
 
 ## Footnotes:
 
 [^1]: According to [Wikipedia](https://en.wikipedia.org/wiki/TV_Tropes), TV Tropes is a wiki website that collects and documents descriptions and examples of plot conventions and devices, more commonly known as tropes, within many creative works. Since its establishment in 2004, the site has shifted focus from covering only television and film tropes to those in general media such as literature, comics, anime, manga, video games, radio, music, advertising, and toys, and their associated fandoms, as well as some non-media subjects such as history, geography, politics, and other real life occurrences, people, and events. The nature of the site as a provider of commentary on pop culture and fiction has attracted attention and criticism from several web personalities and blogs. 
+ 
 
 [^2]: After you've clicked on all the 5 links (don't do it!) explaining what each trope is, you will (no you won't!) have enough self-control to go back to the page for "The Dragon" and look at examples of *other* tropes related to "The Dragon" (yes, there are more!) such as [CoDragons](https://tvtropes.org/pmwiki/pmwiki.php/Main/CoDragons), [Dragon-in-Chief](https://tvtropes.org/pmwiki/pmwiki.php/Main/DragonInChief), [Dragon With an Agenda](https://tvtropes.org/pmwiki/pmwiki.php/Main/DragonWithAnAgenda), or [It's Personal with The Dragon](https://tvtropes.org/pmwiki/pmwiki.php/Main/ItsPersonalWithTheDragon) - there are more, those are just my favorites. As you're reading each of the dragon subtropes, you'll think of your favorite movies/ books/ TV shows/ video games, where *you've seen it before* ([yes, of course that's a trope](https://tvtropes.org/pmwiki/pmwiki.php/Main/ItsBeenDone)). You will browse through examples on the site to confirm this, while clicking on the links at the same time. Before you know it, it's 2 in the morning and you have done absolutely nothing productive in the last 6 hours. 
 
