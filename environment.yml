@@ -1,0 +1,18 @@
+name: tvtropes
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - ipykernel=6.13.0
+  - ipywidgets=7.7.0
+  - numpy=1.21.6
+  - numba=0.53.1
+  - seaborn=0.11.2
+  - scikit-learn
+  - pandas=1.4.2
+  - pip
+  - plotnine=0.8.0
+  - pip:
+    - bertopic==0.9.4
+    
+  
