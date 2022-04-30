@@ -14,6 +14,7 @@ dependencies:
   - plotly=5.7.0
   - plotnine=0.8.0
   - tqdm=4.64.0
+  - bokeh=2.4.2 
   - pip:
     - bertopic==0.9.4
     - nltk==3.7
